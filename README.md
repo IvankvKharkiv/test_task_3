@@ -33,7 +33,7 @@ Original task:<br/>
 <br/>
 Completed task:
 /v1/api/users - gets all users, /v1/api/user/id - (GET, POST, PUT, DELETE) for one user.
-
+<br/>
 <br/>
 <br/>
 Original task:<br/>
@@ -41,9 +41,11 @@ Original task:<br/>
 "testAdmin" - має право на GET, POST, PUT, DELETE без обмежень;
 "testUser" - має право на GET, POST, PUT але тільки в рамках свого користувача, видаляти не може.
 <br/>
+<br/>
 Completed task:<br/>
 'ROLE_ADMIN', 'ROLE_USER'<br/>
 Plus one endpoint for getting bearer by credentials API login: /v1/api/login wiht body: {"username": "user2", "password": "1234"}<br/>
-
+<br/>
+<br/>
 
 Also not clear why do you need dump of DB if fixtures exists? But anyway I did it.
