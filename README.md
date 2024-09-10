@@ -46,3 +46,4 @@ Completed task:<br/>
 Plus one endpoint for getting bearer by credentials API login: /v1/api/login wiht body: {"username": "user2", "password": "1234"}<br/>
 
 
+Also not clear why do you need dump of DB if fixtures exists? But anyway I did it.
