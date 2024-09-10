@@ -1,0 +1,206 @@
+{
+	"info": {
+		"_postman_id": "3cf33892-09bd-454c-a5ab-458e77bb25cf",
+		"name": "Test_task_3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetAllUsers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "e38e1433d65238579e702ddf45228bb966969a5f941627d762f9935e3affad855407b7507e7a216e446aa0e16145b7fb75f15397ad032bc2fc1caa69",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://test_task_3.com/v1/api/users",
+					"protocol": "http",
+					"host": [
+						"test_task_3",
+						"com"
+					],
+					"path": [
+						"v1",
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAdminBearer",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"admin\", \"password\": \"1234\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://test_task_3.com/v1/api/login",
+					"protocol": "http",
+					"host": [
+						"test_task_3",
+						"com"
+					],
+					"path": [
+						"v1",
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAdminUser1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"user1\", \"password\": \"1234\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://test_task_3.com/v1/api/login",
+					"protocol": "http",
+					"host": [
+						"test_task_3",
+						"com"
+					],
+					"path": [
+						"v1",
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAdminUser2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"user2\", \"password\": \"1234\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://test_task_3.com/v1/api/login",
+					"protocol": "http",
+					"host": [
+						"test_task_3",
+						"com"
+					],
+					"path": [
+						"v1",
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditUser1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "14711e8932447bca4b756e38164dd0bf6824ffcf1a4e4ff5ef4a676e55a2131e4943562d42e22a76116f21dd07a2a7462c90ca79a6c601b27ebbbfcc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"id\": 1,\n        \"login\": \"user1\",\n        \"roles\": [\n            \"ROLE_USER\"\n        ],\n        \"password\": \"1234\",\n        \"phone\": \"2345\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://test_task_3.com/v1/api/user/1",
+					"protocol": "http",
+					"host": [
+						"test_task_3",
+						"com"
+					],
+					"path": [
+						"v1",
+						"api",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "80d71015e45ae0c32ce50d3f7a93d66b9ea4d2ca46a4e91ba5141988fcafa47fcb92713746c4fa4b5d7095e45e797a0f1e131a2ba3ed15940d968e94",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://test_task_3.com/v1/api/user/1",
+					"protocol": "http",
+					"host": [
+						"test_task_3",
+						"com"
+					],
+					"path": [
+						"v1",
+						"api",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
