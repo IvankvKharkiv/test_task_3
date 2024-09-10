@@ -1,19 +1,48 @@
 To start the project run 'docker compose up -d --build' <br/>
 If something goes wrong, run 'docker compose down' and then 'docker system prune -a' that will delete all containers to start from 'fresh start'.<br/>
-If you were runnig kubernetes before you need to delete all images in kubernetes context too because there are sometimes conflicts between images and containers. <br/>
+If you were running kubernetes before you need to delete all images in kubernetes context too because there are sometimes conflicts between images and containers. <br/>
 Very rarely but if you on Ubuntu sometimes you eve need to restart it and then run 'docker system prune -a'  <br/>
 Put '127.0.0.1       test_task_3.com' into /etc/hosts. <br/>
 To get into fpm container 'docker exec -it test_task_3-fpm-1 bash' <br/>
 run composer install in container <br/>
-all the code is implemented in TestCommand.php <br/>
-to run command enter inside container: bin/console app:test and it will end up with error  <br/> 
-because input data has error in one of bin codes and API endpoints have limitations <br/>
-For instance https://lookup.binlist.net/ do not allow more than 2 requests from one IP <br/>
-That is why there are two flags: -u and -i.  <br/>
-If you run command "bin/console app:test -u" then it will use locally saved data without requesting APIs.  <br/>
-But still it will use input data with one wrong bin code so error will appear. <br/>
-If you run command "bin/console app:test -u -i" then it will not only use locally saved data but also input file without mistakes.  <br/>
-So the command will run smoothly without errors.
-For http://api.exchangeratesapi.io I had to register my account. So you'll see my API key in code which is the wort practice, <br/>
-but I did not want to spend to much time to put it into environment.
-Original test task: https://gist.github.com/naymkazp/87112812d3e273083979f3e36035e1e9
+Most of the endpoints will be provided with Postman collection <br/>
+<br/>
+<br/>
+Deviations from original task:  <br/>
+<br/>
+Original task: "Сутність користувача складається з 4 атрибутів \$id, \$login, \$phone, \$pass"<br/>
+Completed task: \$id, \$login, \$phone, \$password" (it was necessary to have field \$password to implement PasswordAuthenticatedUserInterface by User entity)
+<br/>
+<br/>
+Original task: "Використання будь-яких компонентів symfony, але FOS* компонентом symfony вже не рахуємо."
+Completed task: used only php-cs-fixer from FOS as it is not main functionality but code must be standardized.
+<br/>
+<br/>
+Original task:
+![img.png](img.png)
+Completed task: <br/>
+PUT - login, phone, pass, id (because when you edit, it exists)<br/>
+POST - login, phone, pass (because when you post you add new)
+<br/>
+<br/>
+Original task:<br/>
+Реалізувати ендпоінт по урлу:
+ /v1/api/users<br/>
+Ендпоінт повинен приймати в себе 4 типи запитів:
+**GET**,  **POST**, **PUT**, **DELETE**.
+<br/>
+Completed task:
+/v1/api/users - gets all users, /v1/api/user/id - (GET, POST, PUT, DELETE) for one user.
+
+<br/>
+<br/>
+Original task:<br/>
+Застосунок закрит зовні, спосіб авторизації Bearer. Два типи токена:
+"testAdmin" - має право на GET, POST, PUT, DELETE без обмежень;
+"testUser" - має право на GET, POST, PUT але тільки в рамках свого користувача, видаляти не може.
+<br/>
+Completed task:<br/>
+'ROLE_ADMIN', 'ROLE_USER'<br/>
+Plus one endpoint for getting bearer by credentials API login: /v1/api/login wiht body: {"username": "user2", "password": "1234"}<br/>
+
+
