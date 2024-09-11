@@ -49,3 +49,11 @@ Plus one endpoint for getting bearer by credentials API login: /v1/api/login wih
 <br/>
 
 Also not clear why do you need dump of DB if fixtures exists? But anyway I did it.
+<br/>
+<br/>
+There is some REALLY BAD coding in app/src/Controller/Api/V1/UserController.php:isViolationUserUniqueValid. <br/>
+It was made due to unclear business logic.<br/> 
+Also it was made in order to be able to use Symfony standard validator with cusotom constraints #[AcmeAssert\ConstraintUserUnique()]. <br/>
+It is not clear if user can change his own logic or not.<br/>
+If user cannot change his login then this logic not needed. <br/>
+There are of course better solutions but I wasn't able to spend more time on test task.
